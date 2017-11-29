@@ -14,3 +14,6 @@ class GramSchmidt(object):
     
     def Multi(self, v1, coef):
         return v1.dot(coef)
+    
+    def GSproj(self, v1, v2):
+        return self.Multi(v1, self.GSCoef(v1, v2))

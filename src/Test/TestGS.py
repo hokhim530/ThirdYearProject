@@ -23,3 +23,10 @@ class Test(unittest.TestCase):
         v1 = np.array([5, 8, 7])
         result = gs.Multi(v1, 5)
         npt.assert_array_equal(result, np.array([25, 40, 35]))
+        
+    def testGSproj(self):
+        gs = GramSchmidt()
+        v1 = np.array([5, 8, 7])
+        v2 = np.array([6, 4, 9])
+        result = gs.GSproj(v1, v2)
+        npt.assert_array_equal(result, np.array([625/ 138, 1000/138, 875/138]))
