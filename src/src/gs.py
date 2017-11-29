@@ -1,10 +1,11 @@
 '''
-Created on 2017¦~10¤ë5¤é
+Created on 5 October 2017
 
 @author: Lai Hok Him
 '''
 
 import numpy as np
+
 
 class GramSchmidt(object):
     

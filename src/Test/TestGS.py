@@ -1,5 +1,5 @@
 '''
-Created on 2017¦~10¤ë5¤é
+Created on 5 October 2017
 
 @author: Lai Hok Him
 '''
@@ -8,8 +8,8 @@ import unittest
 import numpy as np
 from src.gs import GramSchmidt
 
-class TestGS(unittest.TestCase):
-    
+class Test(unittest.TestCase):
+
     def testGSCoefficients(self):
         gs = GramSchmidt()
         v1 = np.array([5, 8, 7])
