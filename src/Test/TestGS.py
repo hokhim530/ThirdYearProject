@@ -13,20 +13,28 @@ class Test(unittest.TestCase):
 
     def testGSCoefficients(self):
         gs = GramSchmidt()
-        v1 = np.array([5, 8, 7])
-        v2 = np.array([6, 4, 9])
+        v1 = np.array([1, 1, 1])
+        v2 = np.array([-1, 0, 2])
         result = gs.GSCoef(v1,v2)
-        self.assertEqual(result, 125/ 138, "Coef Fail")
+        self.assertEqual(result, 1/ 3, "Coef Fail")
         
     def testMulti(self):
         gs = GramSchmidt()
-        v1 = np.array([5, 8, 7])
-        result = gs.Multi(v1, 5)
-        npt.assert_array_equal(result, np.array([25, 40, 35]))
+        v1 = np.array([1, 1, 1])
+        result = gs.Multi(v1, 1/ 3)
+        npt.assert_array_equal(result, np.array([1/ 3, 1/ 3, 1/ 3]))
         
     def testGSproj(self):
         gs = GramSchmidt()
-        v1 = np.array([5, 8, 7])
-        v2 = np.array([6, 4, 9])
+        v1 = np.array([1, 1, 1])
+        v2 = np.array([-1, 0, 2])
         result = gs.GSproj(v1, v2)
-        npt.assert_array_equal(result, np.array([625/ 138, 1000/138, 875/138]))
+        npt.assert_array_equal(result, np.array([1/ 3, 1/ 3, 1/ 3]))
+        
+    def testGS(self):
+        gs = GramSchmidt()
+        v1 = [[1, 1, 1], [-1, 0, 2], [3, 5, 6]]
+        result = gs.GS(v1)
+        pResult = [[1, 1, 1], [-4/ 3, -1/ 3, 5/ 3], [-6/ 14, 9/ 14, -3/ 14]]
+        self.assertListEqual(result, pResult)
+        print(result)
