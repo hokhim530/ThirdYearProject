@@ -29,3 +29,9 @@ class LLLAlgorithm(object):
             result = v1 - gs.Multi(np.asarray(basis[j]), v2)
             basis[i] = result.tolist()
         return basis
+
+    def LLL(self, basis):
+        for i in range(1, len(basis)):
+            basis = self.Reduce(basis, i)
+            basis = self.LovaszCondition(basis, i)
+        return basis

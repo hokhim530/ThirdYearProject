@@ -29,3 +29,10 @@ class Test(unittest.TestCase):
         result = lll.Reduce(basis, 1)
         pResult = [[1, 9, 9], [13, 5, -7], [31, -8, -8]]
         self.assertListEqual(result, pResult)
+        
+    def testLLL(self):
+        lll = LLLAlgorithm()
+        basis = [[15, 23, 11], [46, 15, 3], [32, 1, 1]]
+        result = lll.LLL(basis)
+        pResult = [[1, 9, 9], [13, 5, -7], [6, -9, 15]]
+        self.assertListEqual(result, pResult)
