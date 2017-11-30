@@ -27,7 +27,6 @@ class GramSchmidt(object):
                 for j in range(i):
                     v1 = np.asarray(oBasis[i - j - 1])
                     result = np.subtract(result, self.GSproj(v1, v2))
-                    print(result)
             else:
                 result = np.asarray(basis[0])
             oBasis.append(result.tolist())
