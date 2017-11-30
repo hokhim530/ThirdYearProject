@@ -6,7 +6,6 @@ Created on 5 October 2017
 
 import numpy as np
 
-
 class GramSchmidt(object):
     
     def GSCoef(self, v1, v2):
