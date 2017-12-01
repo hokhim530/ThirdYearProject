@@ -17,9 +17,9 @@ class GramSchmidt(object):
     def GSproj(self, v1, v2):
         return self.Multi(v1, self.GSCoef(v1, v2))
     
-    def GS(self, basis):
+    def GS(self, basis, v):
         oBasis = []
-        for i in range(len(basis)):
+        for i in range(v):
             if i != 0:
                 v2 = np.asarray(basis[i])
                 result = v2
