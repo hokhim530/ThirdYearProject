@@ -26,7 +26,7 @@ class LLLAlgorithm(object):
         for j in range(i):
             v1 = np.asarray(basis[i])
             coef = gs.GSCoef(np.asarray(basis[j]), v1)
-            if 1 <= coef <= 0.5:
+            if coef <= 0.5:
                 break
             v2 = np.around(gs.GSCoef(np.asarray(basis[j]), v1))
             result = v1 - gs.Multi(np.asarray(basis[j]), v2)
