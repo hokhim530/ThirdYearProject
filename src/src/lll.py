@@ -47,8 +47,11 @@ class LLLAlgorithm(object):
     '''
     Main body of LLL algorithm
     '''
-    def LLL(self, matrix):
-        vList = matrix.tolist().copy()
+    def LLL(self, lattice):
+        if type(lattice) == list:
+            vList = lattice.copy()
+        else:
+            vList = lattice.tolist().copy()
         temp1 = vList.copy()
         temp2 = vList.copy()
         count = 1
@@ -68,3 +71,11 @@ class LLLAlgorithm(object):
             if temp1 == temp2:
                 break
         return np.asmatrix(vList)
+
+if __name__ == '__main__':
+    lll = LLLAlgorithm()
+    lattice = input(
+        'please input lattice in matrix form:\
+        (example:[[15, 23, 11], [46, 15, 3], [32, 1, 1]])\n')
+    matrix = eval(lattice)
+    print(lll.LLL(lattice))
