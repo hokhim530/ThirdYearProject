@@ -3,11 +3,11 @@ Created on 20 October 2017
 
 @author: Lai Hok Him
 '''
+from __future__ import division
 
 import unittest
 import numpy as np
 from src.lll import LLLAlgorithm
-
 
 class Test(unittest.TestCase):
 

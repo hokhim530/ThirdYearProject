@@ -3,16 +3,22 @@ Created on 20 October 2017
 
 @author: Lai Hok Him
 '''
+from __future__ import division
 import numpy as np
 from src.gs import GramSchmidt
 
-
 class LLLAlgorithm(object):
 
+    '''
+    Swap the value between basis in LLL
+    '''
     def Swap(self, basis, i, j):
         basis[i], basis[j] = basis[j], basis[i]
         return basis
 
+    '''
+    Perform Lovasz Condition in LLL
+    '''
     def LovaszCondition(self, basis, i):
         gs = GramSchmidt()
         oBasis = gs.GS(basis, i + 1)
@@ -22,7 +28,10 @@ class LLLAlgorithm(object):
         if v1 < v2:
             basis = self.Swap(basis, i, i - 1)
         return basis
-
+    
+    '''
+    Lattice reduction
+    '''
     def Reduce(self, basis, i):
         gs = GramSchmidt()
         for j in range(i):
@@ -34,12 +43,18 @@ class LLLAlgorithm(object):
             result = v1 - gs.Multi(np.asarray(basis[j]), v2)
             basis[i] = result.tolist()
         return basis
-
+    
+    '''
+    Main body of LLL algorithm
+    '''
     def LLL(self, matrix):
         vList = matrix.tolist().copy()
         temp1 = vList.copy()
         temp2 = vList.copy()
         count = 1
+        '''
+        The loop will do the reduction until finished reduction
+        '''
         while True:
             for i in range(1, len(vList)):
                 self.Reduce(vList, i)

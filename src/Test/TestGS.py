@@ -3,12 +3,11 @@ Created on 5 October 2017
 
 @author: Lai Hok Him
 '''
-
+from __future__ import division
 import unittest
 import numpy as np
 import numpy.testing as npt
 from src.gs import GramSchmidt
-
 
 class Test(unittest.TestCase):
 
